@@ -23,21 +23,21 @@ def createLocators(*args):
             print 'linear'
             for i in range(0, varLocators):
                 i += 1
-                cmds.spaceLocator(position=(int(xPos),int(yPos),int(zPos)), name='locatorDelDemonio%d' %(i+1))
+                cmds.spaceLocator(position=(int(xPos),int(yPos),int(zPos)), name='locator_%d' %(i+1))
             return
         #Check if positioning Relative is selected.            
         elif sel == 2:
             print 'relative'
             for i in range(0, varLocators):
                 i += 1
-                cmds.spaceLocator(position=(int(xPos),int(yPos),int(zPos)), relative=True, name='locatorDelDemonio%d' %(i+1))
+                cmds.spaceLocator(position=(int(xPos),int(yPos),int(zPos)), relative=True, name='locator_%d' %(i+1))
             return
         #Check if positioning Absolute is selected.
         elif sel == 3:
             print 'absolute'
             for i in range(0, varLocators):
                 i += 1
-                cmds.spaceLocator(position=(int(xPos),int(yPos),int(zPos)), absolute=True, name='locatorDelDemonio%d' %(i+1))
+                cmds.spaceLocator(position=(int(xPos),int(yPos),int(zPos)), absolute=True, name='locator_%d' %(i+1))
             return
         #Check for a valid positioning method.
         elif sel == 0:
