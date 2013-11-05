@@ -15,44 +15,36 @@ def createLocators(*args):
     lctr_dictionary['position'] = [my_list[each][1] for each in range(len(my_list))]
     varLocators = 4#int(cmds.textField('numLocators', query=True, text=True))
     sel = cmds.radioButtonGrp('radioGroup', query=True, select=True)
-    if (varLocators > 0):
-        #Check for valid x,y,z tuple.        
-        xPos = 0.0#cmds.textField('xValue', query=True, text=True)
-        yPos = 0.0#cmds.textField('yValue', query=True, text=True)
-        zPos = 0.0#cmds.textField('zValue', query=True, text=True)
-        #print sel
-        if ((xPos == '') | (yPos == '') | (zPos == '')):
-            print 'Please enter the complete X,Y,Z tuple to indicate the position.'
-            return 0
-        #Check if positioning Linear is selected.
-        if sel == 1:
-            #print 'linear'
-            for i in range(0, varLocators):
-                cmds.spaceLocator(position=(lctr_dictionary['position'][i][0], lctr_dictionary['position'][i][1], lctr_dictionary['position'][i][2]), name='lctr_%d' %(i+1))
-                i += 1
-            return lctr_dictionary
-        #Check if positioning Relative is selected.            
-        elif sel == 2:
-            #print 'relative'
-            for i in range(0, varLocators):
-                cmds.spaceLocator(position=(lctr_dictionary['position'][i][0], lctr_dictionary['position'][i][1], lctr_dictionary['position'][i][2]), relative=True, name='lctr_%d' %(i+1))
-                i += 1
-            return lctr_dictionary
-        #Check if positioning Absolute is selected.
-        elif sel == 3:
-            #print 'absolute'
-            for i in range(0, varLocators):
-                cmds.spaceLocator(position=(lctr_dictionary['position'][i][0], lctr_dictionary['position'][i][1], lctr_dictionary['position'][i][2]), absolute=True, name='lctr_%d' %(i+1))
-                i += 1
-            return lctr_dictionary
-        #Check for a valid positioning method.
-        elif sel == 0:
-            print 'Please choose one of the positioning methods'
-            return 0
-    #Check for valid amount of locators.
-    elif (varLocators <= 0):
-        print 'The minimum amount of locators is 1'
-    return 0
+    #Check for valid x,y,z tuple.        
+    xPos = 0.0#cmds.textField('xValue', query=True, text=True)
+    yPos = 0.0#cmds.textField('yValue', query=True, text=True)
+    zPos = 0.0#cmds.textField('zValue', query=True, text=True)
+    #print sel
+    #Check if positioning Linear is selected.
+    if sel == 1:
+        #print 'linear'
+        for i in range(0, varLocators):
+            cmds.spaceLocator(position=(lctr_dictionary['position'][i][0], lctr_dictionary['position'][i][1], lctr_dictionary['position'][i][2]), name='lctr_%d' %(i+1))
+            i += 1
+        return lctr_dictionary
+    #Check if positioning Relative is selected.            
+    elif sel == 2:
+        #print 'relative'
+        for i in range(0, varLocators):
+            cmds.spaceLocator(position=(lctr_dictionary['position'][i][0], lctr_dictionary['position'][i][1], lctr_dictionary['position'][i][2]), relative=True, name='lctr_%d' %(i+1))
+            i += 1
+        return lctr_dictionary
+    #Check if positioning Absolute is selected.
+    elif sel == 3:
+        #print 'absolute'
+        for i in range(0, varLocators):
+            cmds.spaceLocator(position=(lctr_dictionary['position'][i][0], lctr_dictionary['position'][i][1], lctr_dictionary['position'][i][2]), absolute=True, name='lctr_%d' %(i+1))
+            i += 1
+        return lctr_dictionary
+    #Check for a valid positioning method.
+    elif sel == 0:
+        print 'Please choose one of the positioning methods'
+        return 0
 
 #Save Json method
 def saveJsonFile(*args):
