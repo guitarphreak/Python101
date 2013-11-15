@@ -5,7 +5,7 @@ import tempfile
 
 def createLocators(*args):
     lctr_dictionary = {}
-    my_list = (['lctr_l_arm2',[0.0,0.0,0.0]],['lctr_l_arm2',[1.0,0.0,-1.0]],['lctr_l_wrist',[2.0,0.0,0.0]],['lctr_l_armEnd',[3.0,0.0,1.0]])
+    my_list = (['lctr_l_arm1',[0.0,0.0,0.0]],['lctr_l_arm2',[1.0,0.0,-1.0]],['lctr_l_wrist',[2.0,0.0,0.0]],['lctr_l_armEnd',[3.0,0.0,1.0]])
     #Check for valid amount of locators (not null).
     #if (cmds.textField('numLocators', query=True, text=True) == ''):
         #print 'No locators created. Please enter the amount of locators required.'
